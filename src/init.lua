@@ -136,9 +136,20 @@ function SimpleSpline:FollowPath(Object:BasePart | Model,Speed:number)
 		end
 		
 		for i ,v in self.Spline.domains do
-			if Elasped >= v and not PastWaypoints[i] then
-				PastWaypoints[i]=true
-				NodeReachedEvent:Fire(i)
+			if Reverse then
+				if Prev >= Elasped and not PastWaypoints[1] then
+					PastWaypoints[1]=true
+					NodeReachedEvent:Fire(1)
+				end
+				if Elasped <= v and not PastWaypoints[i] then
+					PastWaypoints[i]=true
+					NodeReachedEvent:Fire(i)
+				end
+			else
+				if Elasped >= v and not PastWaypoints[i] then
+					PastWaypoints[i]=true
+					NodeReachedEvent:Fire(i)
+				end
 			end
 		end
 		
