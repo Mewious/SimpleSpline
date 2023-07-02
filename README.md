@@ -10,10 +10,10 @@ local Spline = SimpleSpline.new(Points,Alpha,Tension)
 Set Options
 ```lua
 Spline:SetOptions({
-	Uniform = true,
-	Offset = CFrame.new(),
-	Loop = true,
-	Reverse = false
+    Uniform = true,
+    Offset = CFrame.new(),
+    Loop = true,
+    Reverse = false
 })
 ```
 Visualize the spline:
@@ -53,9 +53,9 @@ Description: Updates the points of the spline
 ```lua
 Spline:SetOptions({
     Uniform : boolean,
-	Offset : CFrame,
-	Loop : boolean,
-	Reverse : boolean
+    Offset : CFrame,
+    Loop : boolean,
+    Reverse : boolean
 })
 ```
 Description: Sets the options of the spline
@@ -73,10 +73,10 @@ Description: Moves a object along the spline with a given speed
 
 ```lua
 {
-   	Completed : RBXScriptSignal,
-	Time : number,
-	NodeReached : RBXScriptSignal,
-	Stop : Function
+    Completed : RBXScriptSignal,
+    Time : number,
+    NodeReached : RBXScriptSignal,
+    Stop : Function
 }
 ```
 Description: A object that is returned by Spline:FollowPath
