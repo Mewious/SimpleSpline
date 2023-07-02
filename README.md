@@ -84,6 +84,7 @@ Description: Moves a object along the spline with a given speed
     Time : number,
     NodeReached : RBXScriptSignal,
     Stop : Function
+    ChangeSpeed : Function
 }
 ```
 Description: A object that is returned by Spline:FollowPath
@@ -92,3 +93,8 @@ Description: A object that is returned by Spline:FollowPath
 Path.Stop()
 ```
 Description: Stops the path
+
+```lua
+Path.ChangeSpeed(Speed)
+```
+Description: Changes the speed of the path
