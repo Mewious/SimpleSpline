@@ -45,6 +45,13 @@ Description: Creates a new Spline Object
 ### Spline
 
 ```lua
+Spline:GetSpeedFromTime(Time)
+```
+Description: Gets the speed from a given time
+<br>Param: Time
+<br>Returns: Speed
+
+```lua
 Spline:UpdatePoints(Points)
 ```
 Description: Updates the points of the spline

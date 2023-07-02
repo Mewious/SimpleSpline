@@ -15,6 +15,7 @@ type Path = {
 	Time: number,
 	NodeReached: RBXScriptSignal,
 	Stop: () -> nil,
+	ChangeSpeed: (Speed: number) -> nil,
 }
 
 local DefaultOptions: Options = {
@@ -51,9 +52,15 @@ function SimpleSpline:SetOptions(NewOptions: Options)
 	self.CurrentOptions = NewOptions
 end
 
+function SimpleSpline:GetSpeedFromTime(Time: number)
+	return self.Length / Time
+end
+
 function SimpleSpline:FollowPath(Object: BasePart | Model, Speed: number)
+	local Length = self.Length
+
 	local Completed = Instance.new("BindableEvent")
-	local Time = self.Length / Speed
+	local Time = Length / Speed
 	local Run
 	local Connection
 	local Elasped = 0
@@ -159,14 +166,22 @@ function SimpleSpline:FollowPath(Object: BasePart | Model, Speed: number)
 		Prev = Elasped
 	end)
 
-	return {
+	local Path
+
+	Path = {
 		Completed = Completed.Event,
 		Time = Time,
 		Stop = function()
 			Clean()
 		end,
 		NodeReached = NodeReachedEvent.Event,
+		ChangeSpeed = function(NewSpeed)
+			Time = Length / NewSpeed
+			Path.Time = Time
+		end,
 	} :: Path
+
+	return Path
 end
 
 function SimpleSpline:Visualize()
