@@ -117,5 +117,3 @@ Description: A signal that fires when a object finishes the path
 Path.PathCompleted
 ```
 Description: A signal that fires when the entire path is completed
-
-```lua
