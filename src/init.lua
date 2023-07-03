@@ -223,8 +223,8 @@ function SimpleSpline:Visualize()
 end
 
 function SimpleSpline:ClearVisualize()
-	if workspace:FindFirstChild("SimpleSplineVisulize") then
-		workspace.SimpleSplineVisulize:Destroy()
+	if workspace:FindFirstChild("SimpleSplineVisualize") then
+		workspace.SimpleSplineVisualize:Destroy()
 	end
 end
 
