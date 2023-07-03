@@ -190,7 +190,7 @@ function SimpleSpline:Visualize()
 	end
 
 	local Folder = Instance.new("Folder")
-	Folder.Name = "SimpleSplineVisulize"
+	Folder.Name = "SimpleSplineVisualize"
 	Folder.Parent = workspace
 	local last = nil
 
