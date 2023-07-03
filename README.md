@@ -69,11 +69,12 @@ Description: Sets the options of the spline
 <br>Param: Options - a table of options
 
 ```lua
-Spline:FollowPath(Object,Speed)
+Spline:FollowPath(Objects,Speed,Distance)
 ```
-Description: Moves a object along the spline with a given speed
-<br>Param: Object - BasePart or Model
+Description: Moves a object or a list of objects along the spline with a given speed
+<br>Param: Objects - BasePart or Model or table of BaseParts or Models
 <br>Param: Speed - number
+<br>Param: Distance - number
 <br>Returns: Path
 
 ### Path
@@ -81,10 +82,13 @@ Description: Moves a object along the spline with a given speed
 ```lua
 {
     Completed : RBXScriptSignal,
+    PathCompleted : RBXScriptSignal,
     Time : number,
     NodeReached : RBXScriptSignal,
     Stop : Function
-    ChangeSpeed : Function
+    ChangeSpeed : Function,
+    GetElapsed : Function,
+
 }
 ```
 Description: A object that is returned by Spline:FollowPath
@@ -98,3 +102,20 @@ Description: Stops the path
 Path.ChangeSpeed(Speed)
 ```
 Description: Changes the speed of the path
+
+```lua
+Path.GetElapsed()
+```
+Description: Gets the elapsed time of the path
+
+```lua
+Path.Completed
+```
+Description: A signal that fires when a object finishes the path
+
+```lua
+Path.PathCompleted
+```
+Description: A signal that fires when the entire path is completed
+
+```lua
